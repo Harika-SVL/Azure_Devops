@@ -34,3 +34,63 @@
       => Automate test executions with System, Performance, Reliablity, Security
       => Report of the Quality of work done yesterday
     * Customer and Internal Releases every 2 weeks
+
+## Quick Overview of Continuous Delivery Pipeline
+
+* Overview
+
+![Alt text](shots/5.PNG)
+
+* This pipeline will be triggered by the changes in the Version Control Systems (VCS)
+
+## WOW (Ways of Working)
+
+* Figure out the manual steps
+* Implement manual steps in Pipeline depending on your ci/cd engine
+* Steps for gameoflife Refer Here
+* Softwares requried
+    => git
+    => jdk 8
+    => maven
+
+* Manual steps :
+
+![Alt text](shots/6.PNG)
+![Alt text](shots/7.PNG)
+![Alt text](shots/8.PNG)
+
+* Pipeline in Jenkins
+```
+pipeline {
+    agent any
+    stages {
+        stage ('vcs') {
+            steps {
+                git 'https://github.com/wakaleo/game-of-life.git'
+            }
+        }
+        stage ('build') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+    }
+}
+```
+* Pipeline in Azure DevOps
+```
+steps:
+- task: Maven@4
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'package'
+```
+## Git
+
+* Git is a Distributed Version Control System
+* Git is Hosted by many providers
+   => GitHub
+   => Azure Source Repos
+   => Code Commit
+   => Bit Bucket
+   => Git Lab
