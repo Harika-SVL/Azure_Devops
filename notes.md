@@ -94,3 +94,18 @@ steps:
     * Code Commit
     * Bit Bucket
     * Git Lab
+
+## Git – Basics
+
+* Scope of the current discussion would be on how to submit the changes to the Git Repository and how to get latest changes from git repository
+* Workflow
+    * Setting up a GitHub Account
+    * Setting up a user details and credentials (key based credentials)
+    * Creating a Git Repository, Adding code/docs submitting to the repository
+* System Setup:
+    * Softwares:
+      * Terminal (Windows)
+      * Git
+      * Chocolatey (Windows)
+      * home brew Mac Refer Here
+      * Visual Studio Code
