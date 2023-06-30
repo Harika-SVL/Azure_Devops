@@ -28,12 +28,12 @@
 
 * Agile had added smaller and frequent releases, this needs more aggressive automations than CI.
 * Expectation:
-    * Automated Pipeline which when developer pushes changes
-      => Build/Package code
-      => Code Quality and Security Issues
-      => Automate test executions with System, Performance, Reliablity, Security
-      => Report of the Quality of work done yesterday
-    * Customer and Internal Releases every 2 weeks
+  * Automated Pipeline which when developer pushes changes
+      * Build/Package code
+      * Code Quality and Security Issues
+      * Automate test executions with System, Performance, Reliablity, Security
+      * Report of the Quality of work done yesterday
+  * Customer and Internal Releases every 2 weeks
 
 ## Quick Overview of Continuous Delivery Pipeline
 
@@ -49,9 +49,9 @@
 * Implement manual steps in Pipeline depending on your ci/cd engine
 * Steps for gameoflife Refer Here
 * Softwares requried
-    => git
-    => jdk 8
-    => maven
+    * git
+    * jdk 8
+    * maven
 
 * Manual steps :
 
@@ -89,8 +89,8 @@ steps:
 
 * Git is a Distributed Version Control System
 * Git is Hosted by many providers
-   => GitHub
-   => Azure Source Repos
-   => Code Commit
-   => Bit Bucket
-   => Git Lab
+    * GitHub
+    * Azure Source Repos
+    * Code Commit
+    * Bit Bucket
+    * Git Lab
