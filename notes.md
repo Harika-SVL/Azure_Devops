@@ -95,7 +95,7 @@ steps:
     * Bit Bucket
     * Git Lab
 
-## Git – Basics
+## Git-Basics
 
 * Scope of the current discussion would be on how to submit the changes to the Git Repository and how to get latest changes from git repository
 * Workflow
