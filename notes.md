@@ -159,8 +159,33 @@ steps:
 ![Alt text](shots/14.PNG)
 
 * HEAD is a pointer which generally points to a branch
-* HEAD can be moved from one branch to other using a command called as checkout
-    * We executed 'git checkout v1.0'
+* HEAD can be moved from one branch to other using a command called as 'CHECKOUT'
+    * We execute 'git checkout v1.0'
 
 ![Alt text](shots/15.PNG)
 
+* Let's work with branches using nopcommerce [Refer here : 'https://github.com/nopSolutions/nopCommerce/branches']
+
+![Alt text](shots/16.PNG)
+
+* Moving from one branch to other
+
+![Alt text](shots/17.PNG)
+
+* Things to digest
+    * default branch: master
+    * default remote: origin
+    * remote branch: name of remote/name of branch
+
+### Building and Packaging the code
+
+* Building the code and packaging the code to the suitable format for end deployment is very technology specific i.e. it is different depending on programming languages
+* Programming Languages can be categorized into 3 formats
+    * Compiler based
+
+![Alt text](shots/18.PNG)
+
+    * Interpreter based
+    * Hybrid
+
+![Alt text](shots/19.PNG)
