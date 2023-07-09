@@ -122,7 +122,7 @@ steps:
 
 * Identify a folder for local repo '<local repo location path>'
 * Now clone using a command 'git clone <git-url>' command
-* lets look into what are the contents using 'ls' command
+* Let's look into what are the contents using 'ls' command
 
 #### Make changes locally and push to the Remote
 
@@ -149,3 +149,18 @@ steps:
 * Git ways of working in non-tech way
 
 ![Alt text](shots/13.PNG)
+
+## Branches in Git
+
+* Git allows us to work parallely for different use cases
+    * multiple versions of same application
+    * multiple customers for same application
+
+![Alt text](shots/14.PNG)
+
+* HEAD is a pointer which generally points to a branch
+* HEAD can be moved from one branch to other using a command called as checkout
+    * We executed 'git checkout v1.0'
+
+![Alt text](shots/15.PNG)
+
