@@ -102,3 +102,50 @@ steps:
     * Setting up a GitHub Account
     * Setting up a user details and credentials (key based credentials)
     * Creating a Git Repository, Adding code/docs submitting to the repository
+
+## Git Workflow
+
+[ Note: This is a partial workflow and we will be learning complete git in 2 weeks from now ]
+
+* Git Remote Repositories are hosted by GitHub/GitLab/Azure Source Repos etc
+* If we don’t have the Code in local system, then we clone the code to create local repo
+* Once we have local repo, to get latest changes we use pull
+* We add the changes to the staging area using 'git add .' and commit the changes to local repo using 'git commit -m "Added changes" ' and sync the changes from local to remote repo using 'git push origin main' commands
+
+![Alt text](shots/9.PNG)
+
+#### Create a Git Repository in GitHub
+
+* Create a new repository after login into github
+
+#### Cloning the code into local system
+
+* Identify a folder for local repo '<local repo location path>'
+* Now clone using a command 'git clone <git-url>' command
+* lets look into what are the contents using 'ls' command
+
+#### Make changes locally and push to the Remote
+
+* Add the changes in working tree and then add to staging area.
+* Commit the changes and push to the remote
+
+![Alt text](shots/10.PNG)
+
+* Adding multiple changes
+    * Files already in repo will have status of modified or deleted or renamed
+    * Files newly created will have status of untracked
+
+![Alt text](shots/11.PNG)
+
+* we can add multiple changes at once to the staging area
+* When we want to move the changes from staging area to local repo, it needs message, author username and email address
+
+#### Get changes from remote into local when repo already exists
+
+* Use pull
+
+![Alt text](shots/12.PNG)
+
+* Git ways of working in non-tech way
+
+![Alt text](shots/13.PNG)
