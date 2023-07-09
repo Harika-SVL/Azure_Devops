@@ -176,6 +176,7 @@ steps:
     * default branch: master
     * default remote: origin
     * remote branch: name of remote/name of branch
+* Single local repo can have multiple remote repo's
 
 ### Building and Packaging the code
 
@@ -183,9 +184,14 @@ steps:
 * Programming Languages can be categorized into 3 formats
     * Compiler based
 
-![Alt text](shots/18.PNG)
+     ![Alt text](shots/18.PNG)
 
     * Interpreter based
+
+     ![Alt text](shots/19.PNG)
+
     * Hybrid
 
-![Alt text](shots/19.PNG)
+     ![Alt text](shots/20.PNG)
+
+### 
