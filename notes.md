@@ -194,4 +194,50 @@ steps:
 
      ![Alt text](shots/20.PNG)
 
-### 
+## Building and Packaging Code
+
+### Dependecny Managment
+
+* To develop any application , there will be lots of dependencies on other libraries/sdks
+* Before building/packaging we need to download these dependencies
+    * nodejs - npm
+    * python - pip
+    * .net - nuget
+    * java - mvn
+
+### Test Executions
+
+    * We would be running
+        * unit tests (test code by writing code) => developers
+        * integration tests
+            * unit test
+            * ui test
+            * api test
+        * Functional tests
+            * ui tests (simulate user) => selenium, cypress, qtp…
+            * api tests (postman, rest assured)
+        * Performance tests:
+            * load testing harness (jmeter, load runner)
+* What we should know for ci/cd
+        * command to invoke tests
+        * where will be test results
+        * converting test results to some common formats (junit xml)
+
+### Java Based Applications
+
+* To build Java Based applications, we have many tools
+    * ANT
+    * Maven
+    * Gradle
+* In this case we will be using a maven based java application
+    * JDK = 17
+    * MVN 3 +
+    * Project: [ Refer Here : 'https://github.com/spring-projects/spring-petclinic' ]
+* Manual steps : 
+```
+sudo apt update
+sudo apt install openjdk-17-jdk maven -y
+git clone https://github.com/spring-projects/spring-petclinic.git
+cd spring-petclinic
+mvn package # creates package, run unit tests
+```
