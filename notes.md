@@ -260,14 +260,18 @@ mvn package                     # Builds code, Creates package, Runs unit tests
 sudo apt-get update && \
   sudo apt-get install -y dotnet-sdk-7.0
 ```
+![Alt text](shots/23.PNG)
+![Alt text](shots/24.PNG)
+
 * Build steps :
 ```
 git clone https://github.com/nopSolutions/nopCommerce.git
 cd nopCommerce
-git checkout master
+git checkout master               # latest branch with updated version
 dotnet restore src/NopCommerce.sln
 dotnet build src/NopCommerce.sln
 ```
+![Alt text](shots/25.PNG)
 
 ## Azure DevOps
 
