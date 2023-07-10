@@ -196,9 +196,9 @@ steps:
 
 ## Building and Packaging Code
 
-### Dependecny Managment
+### Dependecny Management
 
-* To develop any application , there will be lots of dependencies on other libraries/sdks
+* To develop any application , there will be lots of dependencies on other libraries/sdks(Software developmet kit)
 * Before building/packaging we need to download these dependencies
     * nodejs - npm
     * python - pip
@@ -236,8 +236,81 @@ steps:
 * Manual steps : 
 ```
 sudo apt update
-sudo apt install openjdk-17-jdk maven -y
+sudo apt install openjdk-17-jdk -y
+sudo apt install maven -y
 git clone https://github.com/spring-projects/spring-petclinic.git
 cd spring-petclinic
-mvn package # creates package, run unit tests
+mvn package                     # Builds code, Creates package, Runs unit tests
 ```
+
+### .net framework versions:
+
+    * .net 2,3,4 (Windows)
+    * .net 5 +
+        * .net core
+        * aspnet core
+* Build the nopcommerce [ Refer Here : 'https://github.com/nopSolutions/nopCommerce' ]
+* Softwares:
+    * .net core 7 [ Refer Here : 'https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-2204' ]
+```
+sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-7.0
+```
+* Build steps :
+```
+git clone https://github.com/nopSolutions/nopCommerce.git
+cd nopCommerce
+git checkout master
+dotnet restore src/NopCommerce.sln
+dotnet build src/NopCommerce.sln
+```
+
+## Azure DevOps
+
+* Azure DevOps offers services to manage whole project
+    * Project Management
+        * Planning
+            * Agile Boards
+            * Issue Tracker
+        * Execution
+            * Wiki Pages
+            * Test Management
+    * DevOps:
+        * VCS:
+            * Azure Source Repos
+                * Git
+                * TFVC
+        * Pipelines:
+            * Build Pipelines
+            * Release Pipelines
+        * Artifacts
+* Azure DevOps can be used by two ways
+    * Self-Hosted [ Refer Here : 'https://learn.microsoft.com/en-us/azure/devops/server/download/azuredevopsserver?view=azure-devops' ]
+    * Cloud Hosted: [ Refer Here : 'https://azure.microsoft.com/en-in/products/devops' ]
+* Azure DevOps Services: Cloud Hosted Version of Azure DevOps
+    * Pricing: [ Refer Here : 'https://azure.microsoft.com/en-in/pricing/details/devops/azure-devops-services/' ]
+* Create a free azure devops account [ Refer Here : 'https://azure.microsoft.com/en-in/products/devops' ]
+
+
+
+### Importing an Existing git repo into Azure DevOps
+
+* Import Repository from github into your account
+
+
+
+
+* Now lets setup build i.e. CI pipeline
+
+
+
+
+
+
+
+
+
+
+* By default Parallelism request is disabled we need to enable this by sending request to microsoft on this location [ Refer Here : 'https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR63mUWPlq7NEsFZhkyH8jChUMlM3QzdDMFZOMkVBWU5BWFM3SDI2QlRBSC4u' ]
+
+[ Note: [ Refer Here : 'https://www.youtube.com/watch?v=ggOmHlnhPaM&list=PLuVH8Jaq3mLud3sVDvJ-gJ__0zd15wGDd&index=16' ] for YAML and JSON Tutorial ]
