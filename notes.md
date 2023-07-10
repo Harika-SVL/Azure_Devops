@@ -24,7 +24,7 @@
 * To perform CI different tools started like cruise control and hudson/jenkins
 * Need for automated tests/unit tests started at this point.
 
-## Agile way of Software Development
+### Agile way of Software Development
 
 * Agile had added smaller and frequent releases, this needs more aggressive automations than CI.
 * Expectation:
@@ -35,7 +35,7 @@
       * Report of the Quality of work done yesterday
   * Customer and Internal Releases every 2 weeks
 
-## Quick Overview of Continuous Delivery Pipeline
+### Quick Overview of Continuous Delivery Pipeline
 
 * Overview
 
@@ -103,7 +103,7 @@ steps:
     * Setting up a user details and credentials (key based credentials)
     * Creating a Git Repository, Adding code/docs submitting to the repository
 
-## Git Workflow
+### Git Workflow
 
 [ Note: This is a partial workflow and we will be learning complete git in 2 weeks from now ]
 
@@ -150,7 +150,7 @@ steps:
 
 ![Alt text](shots/13.PNG)
 
-## Branches in Git
+### Branches in Git
 
 * Git allows us to work parallely for different use cases
     * multiple versions of same application
@@ -218,12 +218,13 @@ steps:
             * api tests (postman, rest assured)
         * Performance tests:
             * load testing harness (jmeter, load runner)
-* What we should know for ci/cd
+
+* What we should know for ci/cd...?
         * command to invoke tests
         * where will be test results
         * converting test results to some common formats (junit xml)
 
-### Java Based Applications
+### Building and Packaging Java based applications
 
 * To build Java Based applications, we have many tools
     * ANT
@@ -242,9 +243,12 @@ git clone https://github.com/spring-projects/spring-petclinic.git
 cd spring-petclinic
 mvn package                     # Builds code, Creates package, Runs unit tests
 ```
+![Alt text](shots/21.PNG)
+![Alt text](shots/22.PNG)
 
-### .net framework versions:
+### Building and Packaging dotnet based applications
 
+* .net framework versions:
     * .net 2,3,4 (Windows)
     * .net 5 +
         * .net core
