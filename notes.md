@@ -336,7 +336,7 @@ dotnet build src/NopCommerce.sln
         * object/map
 * Generally yaml used for some configuration purposes will have predefined structure/schema
 
-#### Resume
+#### For example : Resume
 ```
 ---
 career_objective: <type text>
