@@ -321,4 +321,209 @@ dotnet build src/NopCommerce.sln
 
 * By default Parallelism request is disabled we need to enable this by sending request to microsoft on this location [ Refer Here : 'https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR63mUWPlq7NEsFZhkyH8jChUMlM3QzdDMFZOMkVBWU5BWFM3SDI2QlRBSC4u' ]
 
-[ Note: [ Refer Here : 'https://www.youtube.com/watch?v=ggOmHlnhPaM&list=PLuVH8Jaq3mLud3sVDvJ-gJ__0zd15wGDd&index=16' ] for YAML and JSON Tutorial ]
+### YAML
+
+* YAML is a data represntation language with name-value pair collection
+* It represents name-value pair as '<name>: <value>'
+* Names generally are strings/text and value can be of any type
+* Types:
+    * Simple
+        * Text/String
+        * number
+        * boolean
+    * Complex
+        * list
+        * object/map
+* Generally yaml used for some configuration purposes will have predefined structure/schema
+
+#### Resume
+```
+---
+career_objective: <type text>
+professional_summary: <type text>
+technical skills: <type TechicalSkill>
+WorkExperience: <type WorkExperience Array> 
+contact: <type Contact>
+
+TechicalSkill: <type Skill Array>
+
+Skill => 
+<name of skill>: <type text Array>
+
+WorkExperience =>
+Company: <type text>
+StartDate: <type text>
+EndDate: <type text>
+RolesAndResponsibilities: <type text Array>
+Designation: <type text>
+
+Contact =>
+email: <type text>
+phone: <type text>
+```
+
+* Lets start writing a resume based on schema defined above
+```
+---
+career_objective: |
+    Seeking a challenging position in a reputed organization where 
+    I can learn new skills, expand my knowledge, and leverage my    
+    learnings
+professional_summary: |
+    Skilled DevOps Engineer with 3+ years of hands-on experience    
+    supporting, automating, and optimizing mission critical     
+    deployments in AWS, leveraging configuration management, CI/CD, 
+    and DevOps processes. &nbsp; Configuration management using     
+    Puppet, Ansible, and Chef. Knowledge of Python, C/C++
+technicalskills:
+  - os:
+      - linux
+      - windows
+  - ci/cd:
+      - Jenkins
+      - Azure DevOps
+  - VCS:
+      - git
+WorkExperience:
+  - Company: Apple
+    StartDate: 6/25/2020
+    EndDate: Present
+    RolesAndResponsibilities:
+      - Maintaining CI/CD Pipelines
+      - Developing K8s Manifests
+    Designation: Sr DevOps Engineer
+  - Company: Google
+    StartDate: 6/25/2014
+    EndDate: 6/24/2017
+    RolesAndResponsibilities:
+      - Maintaining CI/CD Pipelines
+      - Developing K8s Manifests
+    Designation: DevOps Engineer
+```
+
+* Lets look at one more schema for describing investments
+```
+---
+realestate: <type Property Array>
+Equity: <type Equity Array>
+MF: <type MF Array>
+FD: <type FD Array>
+
+Property =>
+AssetValue: <type Number>
+Type: <type Text> Commercial|Residential|Agricultural
+AreaInSqft: <type Number>
+
+Equity =>
+Company: <type text>
+NumberOfStocks: <type number>
+StockIndex: <type text> NSE|BSE|DOW
+AverageStockPrice: <type number>
+
+MF =>
+Instrument: <type text>
+Number: <type number>
+AveragePrice: <type number>
+
+FD =>
+Bank: <type Text>
+Amount: <type Number>
+IntrestRate: <type Number>
+```
+
+* Sample YAML
+```
+realestate:
+  - AssetValue: 100000000
+    Type: Commercial
+    AreaInSqft: 3000
+Equity:
+  - Company: HUL
+    NumberOfStocks: 1000
+    StockIndex: NSE
+    AverageStockPrice: 100.5
+  - Company: ITC
+    NumberOfStocks: 10000
+    StockIndex: NSE
+    AverageStockPrice: 10.5
+MF:
+  - Instrument: SBI Magnum Small Cap
+    Number: 100000
+    AveragePrice: 350.4
+FD:
+  - Bank: Sapthagiri Grameena Bank
+    Amount: 10000000000
+    IntrestRate: 9.75
+```
+### Azure DevOps Pipeline
+
+* Azure DevOps Pipelines are expressed in yaml formats in git repositories generally with name 'azure-pipelines.yaml'
+
+
+
+
+* YAML Schema for azure devops pipelines [ Refer here : 'https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines']
+
+* Key Concepts of Azure DevOps [ Refer here : 'https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops']
+
+![Alt text](shots/26.PNG)
+
+* Pipeline:
+    * Where should it execute? => Agents
+    * When should it run => Trigger
+    * What should happend when pipeline executes
+        * Stages
+        * Jobs
+        * Steps
+* When pipeline is executed it is execute with code from version control already cloned and in the branch specified
+```
+---
+trigger:
+  - master
+
+pool: ubuntu-latest
+
+stages:
+  - stage: stage1
+    displayName: first stage
+
+    jobs: 
+      - job: build code
+        displayName: Build Code
+        steps:
+          - task: Maven@4
+            inputs:
+              mavenPOMFile: 'pom.xml'
+              goal: package
+```
+* If your pipeline has only one stage, consider pipeline is collection of jobs
+* Lets try to write the same pipeline above as collection of jobs as we have only one stage
+```
+---
+name: learning
+trigger:
+  - master
+pool: ubuntu-latest
+jobs:
+  - job: buildjob
+    displayName: Build JOB
+    steps:
+      - task: Maven@4
+        inputs:
+          mavenPOMFile: 'pom.xml'
+          goal: 'package'
+```
+* Lets write the pipeline as collection of steps
+```
+---
+name: learning
+trigger:
+  - master
+pool: ubuntu-latest
+steps:
+  - task: Maven@4
+    inputs:
+      mavenPOMFile: 'pom.xml'
+      goal: 'package'
+```
+
