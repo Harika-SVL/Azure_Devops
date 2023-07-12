@@ -470,12 +470,12 @@ FD:
 
 * Pipeline:
     * Where should it execute? => Agents
-    * When should it run => Trigger
-    * What should happend when pipeline executes
+    * When should it run? => Trigger
+    * What should be happened when pipeline executes?
         * Stages
         * Jobs
         * Steps
-* When pipeline is executed it is execute with code from version control already cloned and in the branch specified
+* When pipeline is executed it is executed with code from version control already cloned and in the branch specified
 ```
 ---
 trigger:
