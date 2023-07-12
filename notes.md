@@ -311,6 +311,7 @@ dotnet build src/NopCommerce.sln
     * Pricing: [Refer Here : https://azure.microsoft.com/en-in/pricing/details/devops/azure-devops-services/]
 * Create a free azure devops account [Refer Here : https://azure.microsoft.com/en-in/products/devops]
 
+![Alt text](shots/28.PNG)
 
 
 ## Importing an Existing git repo into Azure DevOps
@@ -544,4 +545,56 @@ steps:
       mavenPOMFile: 'pom.xml'
       goal: 'package'
 ```
+## Agents in Azure DevOps Pipeline
 
+* Azure DevOps Pipelines have two types of Agents
+  * Microsoft hosted Agents
+    * [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml] for the official docs
+    * Size is always fixed 'Standard_D2S' i.e. '2 vcpu's 8 GB RAM'
+    * When to use:
+      * Build/Deploy uses standard tools/softwares and if the configuration required matches the above statement
+      * No/Little configuration is what you like in CI/CD pipelines for executions
+  * Self Hosted Agents
+    * [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/linux-agent?view=azure-devops] for the official docs
+    * You need to configure agent to connect to azure devops
+* Azure DevOps Pipleines can be summarized as shown below
+
+![Alt text](shots/27.PNG)
+
+#### Exercise: Setting up agent to build jdk 17 and maven based softwares
+
+* Create a linux vm
+* Install jdk 17 and maven
+```
+sudo apt update 
+sudo apt install openjdk-17-jdk maven -y
+```
+* Now navigate to project settings and agent pools
+
+
+
+
+
+
+* Now configure account and permissions [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/windows-agent?view=azure-devops#permissions]
+* Configure the agent according to the steps on documentation
+
+
+
+
+* Now lets try to create a simple azure devops build pipeline
+```
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: Default
+steps:
+  - bash: printenv
+```
+* Run the pipeline
