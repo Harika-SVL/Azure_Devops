@@ -487,7 +487,12 @@ FD:
         * Stages
         * Jobs
         * Steps
+
+** Jobs : can be done parallely **
+** Steps : can be done sequentialy **
+
 * When pipeline is executed it is executed with code from version control already cloned and in the branch specified
+* Let's write a pipeline from the YAML schema [Refer here : https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines]
 ```
 ---
 trigger:
@@ -508,8 +513,8 @@ stages:
               mavenPOMFile: 'pom.xml'
               goal: package
 ```
-* If your pipeline has only one stage, consider pipeline is collection of jobs
-* Lets try to write the same pipeline above as collection of jobs as we have only one stage
+* If your pipeline has only one Stage, consider pipeline as collection of Jobs
+* Let's try to write the above pipeline as collection of Jobs (as we have only One Stage)
 ```
 ---
 name: learning
@@ -525,7 +530,8 @@ jobs:
           mavenPOMFile: 'pom.xml'
           goal: 'package'
 ```
-* Lets write the pipeline as collection of steps
+* If your pipeline has only one Job, consider pipeline as collection of Steps
+* Let's try to write the above pipeline as collection of Steps (as we have only One Job)
 ```
 ---
 name: learning
