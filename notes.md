@@ -313,24 +313,21 @@ dotnet build src/NopCommerce.sln
 
 ![Alt text](shots/28.PNG)
 
-
 ## Importing an Existing git repo into Azure DevOps
 
 * Import Repository from github into your account
 
-
-
+![Alt text](shots/29.PNG)
+![Alt text](shots/30.PNG)
+![Alt text](shots/31.PNG)
 
 * Now lets setup build i.e. CI pipeline
 
-
-
-
-
-
-
-
-
+![Alt text](shots/32.PNG)
+![Alt text](shots/33.PNG)
+![Alt text](shots/34.PNG)
+![Alt text](shots/35.PNG)
+![Alt text](shots/36.PNG)
 
 * By default Parallelism request is disabled we need to enable this by sending request to microsoft on this location [Refer Here : https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR63mUWPlq7NEsFZhkyH8jChUMlM3QzdDMFZOMkVBWU5BWFM3SDI2QlRBSC4u]
 
@@ -472,8 +469,7 @@ FD:
 
 * Azure DevOps Pipelines are expressed in yaml formats in git repositories generally with name 'azure-pipelines.yaml'
 
-
-
+![Alt text](shots/37.PNG)
 
 * YAML Schema for azure devops pipelines [Refer here : https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines]
 
@@ -490,6 +486,7 @@ FD:
         * Steps
 
 ** Jobs : can be done parallely **
+
 ** Steps : can be done sequentialy **
 
 * When pipeline is executed it is executed with code from version control already cloned and in the branch specified
@@ -550,7 +547,7 @@ steps:
 * Azure DevOps Pipelines have two types of Agents
   * Microsoft hosted Agents
     * [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml] for the official docs
-    * Size is always fixed 'Standard_D2S' i.e. '2 vcpu's 8 GB RAM'
+    * Size is always fixed `Standard_D2S` i.e. `2 vcpu's 8 GB RAM`
     * When to use:
       * Build/Deploy uses standard tools/softwares and if the configuration required matches the above statement
       * No/Little configuration is what you like in CI/CD pipelines for executions
