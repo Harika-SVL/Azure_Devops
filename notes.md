@@ -19,7 +19,7 @@
 
 ![Alt text](shots/4.PNG)
 
-* Big Bang integrations are error prone, so best solution would be continuos integration (CI).
+* Big Bang integrations are error prone, so best solution would be Continuous Integration (CI).
 * The Goal of CI is to inform dev teams about the failures of integration.
 * To perform CI different tools started like cruise control and hudson/jenkins
 * Need for automated tests/unit tests started at this point.
@@ -46,11 +46,12 @@
 ## WOW (Ways of Working)
 
 * Figure out the manual steps
-* Implement manual steps in Pipeline depending on your ci/cd engine
+* Implement manual steps in Pipeline depending on your CI/CD engine
 
-#### Example : Game Of Life
+#### Example : Game-Of-Life
 
-* Steps for gameoflife [ Refer Here : https://github.com/wakaleo/game-of-life ]
+* Steps for game of life 
+    [ Refer Here : https://github.com/wakaleo/game-of-life ]
 * Softwares requried :
     * git
     * jdk 8
@@ -100,7 +101,7 @@ steps:
 ## Git
 
 * Git is a Distributed Version Control System
-* Git is Hosted by many providers
+* Git is Hosted by many providers :
     * GitHub
     * Azure Source Repos
     * Code Commit
@@ -112,15 +113,15 @@ steps:
 * Scope of the current discussion would be on how to submit the changes to the Git Repository and how to get latest changes from git repository
 * Workflow
     * Setting up a GitHub Account
-    * Setting up a user details and credentials (key based credentials)
+    * Setting up user details and credentials (key-based credentials)
     * Creating a Git Repository, Adding code/docs submitting to the repository
 
 ### Git Workflow
 
 * Git Remote Repositories are hosted by GitHub/GitLab/Azure Source Repos etc
-* If we don’t have the Code in local system, then we clone the code to create local repo
-* Once we have local repo, to get latest changes we use pull
-* We add the changes to the staging area using 'git add .' and commit the changes to local repo using 'git commit -m "Added changes" ' and sync the changes from local to remote repo using 'git push origin main' commands
+* If we don’t have the Code in local system, then we clone the code to create local repository
+* Once we have local repository, to get latest changes we use 'Pull'
+* We add the changes to the staging area using 'git add .' and commit the changes to local repository using 'git commit -m "Add changes" ' and sync the changes from local to remote repository using 'git push origin main' command
 
 ![Alt text](shots/9.PNG)
 
@@ -130,27 +131,27 @@ steps:
 
 ### Cloning the code into local system
 
-* Identify a folder for local repo '<local repo location path>'
-* Now clone using a command 'git clone <git-url>' command
+* Identify a folder for local repository '<local repo location path>'
+* Now clone using 'git clone <git-url>' command
 * Let's look into what are the contents using 'ls' command
 
 ### Make changes locally and push to the Remote
 
-* Add the changes in working tree and then add to staging area.
+* Add the changes in working tree and then add to staging area
 * Commit the changes and push to the remote
 
 ![Alt text](shots/10.PNG)
 
 * Adding multiple changes
-    * Files already in repo will have status of modified / deleted / renamed
+    * Files already in repository will have status of modified / deleted / renamed
     * Files newly created will have status of untracked
 
 ![Alt text](shots/11.PNG)
 
-* we can add multiple changes at once to the staging area
-* When we want to move the changes from staging area to local repo, it needs message, author username and email address
+* We can add multiple changes at once to the staging area
+* When we want to move the changes from staging area to local repository, it needs message, author username and email address
 
-### Get changes from remote into local when repo already exists
+### Get changes from remote into local when repository already exists
 
 * Use pull
 
@@ -163,13 +164,13 @@ steps:
 ## Branches in Git
 
 * Git allows us to work parallely for different use cases :
-    * multiple versions of same application
-    * multiple customers for same application
+    * Multiple versions of same application
+    * Multiple customers for same application
 
 ![Alt text](shots/14.PNG)
 
 * HEAD is a pointer which generally points to a branch
-* HEAD can be moved from one branch to other using a command called as 'CHECKOUT'
+* HEAD can be moved from one branch to other using 'CHECKOUT' command
     * We execute 'git checkout v1.0'
 
 ![Alt text](shots/15.PNG)
@@ -177,7 +178,8 @@ steps:
 
 #### Example : NopCommerce application
 
-* Let's work with branches using nopcommerce [Refer here : https://github.com/nopSolutions/nopCommerce/branches]
+* Let's work with branches using nopcommerce 
+     [Refer here : https://github.com/nopSolutions/nopCommerce/branches]
 
 ![Alt text](shots/16.PNG)
 
@@ -187,19 +189,19 @@ steps:
 
 * Things to digest
     * default branch: master
-    * default remote: origin
+    * default remote branch: origin
     * remote branch: name of remote/name of branch
-* Single local repo can have multiple remote repo's
+* Single local repository can have multiple remote repositories
 
 ### Building and Packaging Code
 
-* Building the code and packaging the code to the suitable format for end deployment is very technology specific i.e. it is different depending on programming languages
-* Programming Languages can be categorized into 3 formats
-    * Compiler based
+* Building and packaging the code to the suitable format for end deployment is very technology specific i.e. it depends on programming languages
+* Programming Languages can be categorized into 3 formats :
+    * Compiler-based
 
      ![Alt text](shots/18.PNG)
 
-    * Interpreter based
+    * Interpreter-based
 
      ![Alt text](shots/19.PNG)
 
@@ -209,8 +211,8 @@ steps:
 
 ### Dependecny Management
 
-* To develop any application , there will be lots of dependencies on other libraries / sdks(Software developmet kit)
-* Before building / packaging we need to download these dependencies
+* To develop any application , there will be lots of dependencies on other libraries / SDKs(Software developmet kit)
+* Before building / packaging we need to download these dependencies. Some of the common dependencies we use are :
     * nodejs -> npm
     * python -> pip
     * .net -> nuget
@@ -218,7 +220,7 @@ steps:
 
 ### Test Executions
 
-* We would be running
+* We would be running :
     * unit tests (test code by writing code) => developers
     * integration tests
         * unit test
@@ -230,22 +232,23 @@ steps:
     * Performance tests:
         * load testing harness (jmeter, load runner)
 
-* What we should know for ci/cd...?
+* What we should know for CI/CD...?
 
-    * command to invoke tests
-    * where will be test results
-    * converting test results to some common formats (junit xml)
+    * Command to invoke tests
+    * Where are the test results
+    * Converting test results to some common formats (junit.xml)
 
 #### Building and Packaging - Java based application
 
-* To build Java Based applications, we have many tools
+* To build Java based application, we have many tools
     * ANT
     * Maven
     * Gradle
 * In this case we will be using a maven based java application
     * JDK = 17
     * MVN 3 +
-    * Project: [Refer Here : https://github.com/spring-projects/spring-petclinic]
+    * Project: 
+        [Refer Here : https://github.com/spring-projects/spring-petclinic]
 * Manual steps : 
 ```
 sudo apt update
@@ -253,21 +256,23 @@ sudo apt install openjdk-17-jdk -y
 sudo apt install maven -y
 git clone https://github.com/spring-projects/spring-petclinic.git
 cd spring-petclinic
-mvn package                     # Builds code, Creates package, Runs unit tests
+mvn package                                                       # Builds code, Creates package, Runs unit tests
 ```
 ![Alt text](shots/21.PNG)
 ![Alt text](shots/22.PNG)
 
-#### Building and Packaging - dotnet based application
+#### Building and Packaging - Dotnet based application
 
 * .net framework versions:
     * .net 2,3,4 (Windows)
     * .net 5 +
         * .net core
         * aspnet core
-* Build the nopcommerce [Refer Here : https://github.com/nopSolutions/nopCommerce]
+* Build the nopcommerce 
+    [Refer Here : https://github.com/nopSolutions/nopCommerce]
 * Softwares:
-    * .net core 7 [Refer Here : https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-2204]
+    * .net core 7 
+        [Refer Here : https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-2204]
 ```
 sudo apt-get update && \
   sudo apt-get install -y dotnet-sdk-7.0
@@ -279,7 +284,7 @@ sudo apt-get update && \
 ```
 git clone https://github.com/nopSolutions/nopCommerce.git
 cd nopCommerce
-git checkout master               # latest branch with updated version
+git checkout master                                       # latest branch with updated version
 dotnet restore src/NopCommerce.sln
 dotnet build src/NopCommerce.sln
 ```
@@ -304,16 +309,20 @@ dotnet build src/NopCommerce.sln
             * Build Pipelines
             * Release Pipelines
         * Artifacts
-* Azure DevOps can be used by two ways
-    * Self-Hosted [Refer Here : https://learn.microsoft.com/en-us/azure/devops/server/download/azuredevopsserver?view=azure-devops]
-    * Cloud Hosted: [Refer Here : https://azure.microsoft.com/en-in/products/devops]
+* Azure DevOps can be used by two ways :
+    * Self-Hosted 
+        [Refer Here : https://learn.microsoft.com/en-us/azure/devops/server/download/azuredevopsserver?view=azure-devops]
+    * Cloud-Hosted: 
+        [Refer Here : https://azure.microsoft.com/en-in/products/devops]
 * Azure DevOps Services: Cloud Hosted Version of Azure DevOps
-    * Pricing: [Refer Here : https://azure.microsoft.com/en-in/pricing/details/devops/azure-devops-services/]
-* Create a free azure devops account [Refer Here : https://azure.microsoft.com/en-in/products/devops]
+    * Pricing: 
+        [Refer Here : https://azure.microsoft.com/en-in/pricing/details/devops/azure-devops-services/]
+* Creating a free azure devops account 
+    [Refer Here : https://azure.microsoft.com/en-in/products/devops]
 
 ![Alt text](shots/28.PNG)
 
-## Importing an Existing git repo into Azure DevOps
+## Importing an Existing git repository into Azure DevOps
 
 * Import Repository from github into your account
 
@@ -321,7 +330,7 @@ dotnet build src/NopCommerce.sln
 ![Alt text](shots/30.PNG)
 ![Alt text](shots/31.PNG)
 
-* Now lets setup build i.e. CI pipeline
+* Now let's setup build i.e. CI pipeline
 
 ![Alt text](shots/32.PNG)
 ![Alt text](shots/33.PNG)
@@ -329,7 +338,7 @@ dotnet build src/NopCommerce.sln
 ![Alt text](shots/35.PNG)
 ![Alt text](shots/36.PNG)
 
-* By default Parallelism request is disabled we need to enable this by sending request to microsoft on this location [Refer Here : https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR63mUWPlq7NEsFZhkyH8jChUMlM3QzdDMFZOMkVBWU5BWFM3SDI2QlRBSC4u]
+* By default Parallelism request is disabled, so we need to enable this by sending request to microsoft on this location  [Refer Here : https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR63mUWPlq7NEsFZhkyH8jChUMlM3QzdDMFZOMkVBWU5BWFM3SDI2QlRBSC4u]
 
 ## YAML
 
@@ -344,7 +353,7 @@ dotnet build src/NopCommerce.sln
     * Complex
         * list
         * object/map
-* Generally yaml used for some configuration purposes will have predefined structure/schema
+* Generally yaml used for configuration purposes will have predefined structure/schema
 
 #### For example : Resume
 ```
@@ -372,19 +381,19 @@ email: <type text>
 phone: <type text>
 ```
 
-* Lets start writing a resume based on schema defined above
+* Let's start writing a resume based on schema defined 
 ```
 ---
 career_objective: |
-    Seeking a challenging position in a reputed organization where 
-    I can learn new skills, expand my knowledge, and leverage my    
-    learnings
+    Seeking a challenging position in a reputed organization where I can learn new skills, 
+    expand my knowledge, and 
+    leverage my learnings
 professional_summary: |
     Skilled DevOps Engineer with 3+ years of hands-on experience    
     supporting, automating, and optimizing mission critical     
-    deployments in AWS, leveraging configuration management, CI/CD, 
-    and DevOps processes. &nbsp; Configuration management using     
-    Puppet, Ansible, and Chef. Knowledge of Python, C/C++
+    deployments in AWS, leveraging configuration management, CI/CD and DevOps processes. 
+    &nbsp; Configuration management using Puppet, Ansible, and Chef. 
+    Knowledge of Python, C/C++
 technicalskills:
   - os:
       - linux
@@ -411,7 +420,7 @@ WorkExperience:
     Designation: DevOps Engineer
 ```
 
-* Lets look at one more schema for describing investments
+* Let's look at one more schema for describing investments
 ```
 ---
 realestate: <type Property Array>
@@ -448,7 +457,7 @@ realestate:
     Type: Commercial
     AreaInSqft: 3000
 Equity:
-  - Company: HUL
+  - Company: HCL
     NumberOfStocks: 1000
     StockIndex: NSE
     AverageStockPrice: 100.5
@@ -471,9 +480,11 @@ FD:
 
 ![Alt text](shots/37.PNG)
 
-* YAML Schema for azure devops pipelines [Refer here : https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines]
+* YAML Schema for azure devops pipelines 
+[Refer here : https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines]
 
-* Key Concepts of Azure DevOps [Refer here : https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops]
+* Key Concepts of Azure DevOps 
+[Refer here : https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops]
 
 ![Alt text](shots/26.PNG)
 
@@ -487,10 +498,11 @@ FD:
 
 ** Jobs : can be done parallely **
 
-** Steps : can be done sequentialy **
+** Steps : can be done sequentially **
 
-* When pipeline is executed it is executed with code from version control already cloned and in the branch specified
-* Let's write a pipeline from the YAML schema [Refer here : https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines]
+* When pipeline is executed, it is executed with a code from Version Control which is already cloned and in the specified branch 
+* Let's write a pipeline from the YAML schema 
+[Refer here : https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines]
 ```
 ---
 trigger:
@@ -546,22 +558,22 @@ steps:
 
 * Azure DevOps Pipelines have two types of Agents
   * Microsoft hosted Agents
-    * [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml] for the official docs
+    [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml] for docs
     * Size is always fixed `Standard_D2S` i.e. `2 vcpu's 8 GB RAM`
     * When to use:
       * Build/Deploy uses standard tools/softwares and if the configuration required matches the above statement
       * No/Little configuration is what you like in CI/CD pipelines for executions
   * Self Hosted Agents
-    * [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/linux-agent?view=azure-devops] for the official docs
+    [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/linux-agent?view=azure-devops] for the docs
     * You need to configure agent to connect to azure devops
-* Azure DevOps Pipleines can be summarized as shown below
+* Azure DevOps Pipleines can be summarized as shown below :
 
 ![Alt text](shots/27.PNG)
 
-#### Exercise: Setting up agent to build jdk 17 and maven based softwares
+#### Exercise: Setting up agent to build jdk-17 and maven based softwares
 
 * Create a linux vm
-* Install jdk 17 and maven
+* Install jdk-17 and maven
 ```
 sudo apt update 
 sudo apt install openjdk-17-jdk maven -y
@@ -573,13 +585,14 @@ sudo apt install openjdk-17-jdk maven -y
 
 
 
-* Now configure account and permissions [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/windows-agent?view=azure-devops#permissions]
+* Now configure account and permissions 
+    [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/windows-agent?view=azure-devops#permissions]
 * Configure the agent according to the steps on documentation
 
 
 
 
-* Now lets try to create a simple azure devops build pipeline
+* Now let's try to create a simple azure devops build pipeline
 ```
 # Starter pipeline
 # Start with a minimal pipeline that you can customize to build and deploy your code.
