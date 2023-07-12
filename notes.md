@@ -1,4 +1,4 @@
-## Big Bang integration
+### Big Bang integration Senerio
 * Consider a case where you are working for vintage systems where we are developing ecommerce application in Waterfall model
 
 ![Alt text](shots/1.PNG)
@@ -35,11 +35,11 @@
       * Report of the Quality of work done yesterday
   * Customer and Internal Releases every 2 weeks
 
-### Quick Overview of Continuous Delivery Pipeline
-
-* Overview
+## Overview of Continuous Delivery Pipeline
 
 ![Alt text](shots/5.PNG)
+
+=> ST ENV - Stagging Environment , PT ENV - Performance Testing Environment
 
 * This pipeline will be triggered by the changes in the Version Control Systems (VCS)
 
@@ -47,14 +47,26 @@
 
 * Figure out the manual steps
 * Implement manual steps in Pipeline depending on your ci/cd engine
-* Steps for gameoflife Refer Here
-* Softwares requried
+
+#### Example : Game Of Life
+
+* Steps for gameoflife [ Refer Here : https://github.com/wakaleo/game-of-life ]
+* Softwares requried :
     * git
     * jdk 8
     * maven
 
 * Manual steps :
-
+```
+sudo apt update
+sudo apt install openjdk-8-jdk -y
+java -version
+sudo apt install maven -y
+mvn -version
+git clone https://github.com/wakaleo/game-of-life.git
+cd game-of-life
+mvn package
+```
 ![Alt text](shots/6.PNG)
 ![Alt text](shots/7.PNG)
 ![Alt text](shots/8.PNG)
@@ -95,7 +107,7 @@ steps:
     * Bit Bucket
     * Git Lab
 
-## Git-Basics
+### Git-Basics
 
 * Scope of the current discussion would be on how to submit the changes to the Git Repository and how to get latest changes from git repository
 * Workflow
@@ -105,8 +117,6 @@ steps:
 
 ### Git Workflow
 
-[ Note: This is a partial workflow and we will be learning complete git in 2 weeks from now ]
-
 * Git Remote Repositories are hosted by GitHub/GitLab/Azure Source Repos etc
 * If we don’t have the Code in local system, then we clone the code to create local repo
 * Once we have local repo, to get latest changes we use pull
@@ -114,17 +124,17 @@ steps:
 
 ![Alt text](shots/9.PNG)
 
-#### Create a Git Repository in GitHub
+### Create a Git Repository in GitHub
 
 * Create a new repository after login into github
 
-#### Cloning the code into local system
+### Cloning the code into local system
 
 * Identify a folder for local repo '<local repo location path>'
 * Now clone using a command 'git clone <git-url>' command
 * Let's look into what are the contents using 'ls' command
 
-#### Make changes locally and push to the Remote
+### Make changes locally and push to the Remote
 
 * Add the changes in working tree and then add to staging area.
 * Commit the changes and push to the remote
@@ -132,7 +142,7 @@ steps:
 ![Alt text](shots/10.PNG)
 
 * Adding multiple changes
-    * Files already in repo will have status of modified or deleted or renamed
+    * Files already in repo will have status of modified / deleted / renamed
     * Files newly created will have status of untracked
 
 ![Alt text](shots/11.PNG)
@@ -140,19 +150,19 @@ steps:
 * we can add multiple changes at once to the staging area
 * When we want to move the changes from staging area to local repo, it needs message, author username and email address
 
-#### Get changes from remote into local when repo already exists
+### Get changes from remote into local when repo already exists
 
 * Use pull
 
 ![Alt text](shots/12.PNG)
 
-* Git ways of working in non-tech way
+* Git ways of working in non-technical way
 
 ![Alt text](shots/13.PNG)
 
-### Branches in Git
+## Branches in Git
 
-* Git allows us to work parallely for different use cases
+* Git allows us to work parallely for different use cases :
     * multiple versions of same application
     * multiple customers for same application
 
@@ -164,7 +174,10 @@ steps:
 
 ![Alt text](shots/15.PNG)
 
-* Let's work with branches using nopcommerce [Refer here : 'https://github.com/nopSolutions/nopCommerce/branches']
+
+#### Example : NopCommerce application
+
+* Let's work with branches using nopcommerce [Refer here : https://github.com/nopSolutions/nopCommerce/branches]
 
 ![Alt text](shots/16.PNG)
 
@@ -178,7 +191,7 @@ steps:
     * remote branch: name of remote/name of branch
 * Single local repo can have multiple remote repo's
 
-### Building and Packaging the code
+### Building and Packaging Code
 
 * Building the code and packaging the code to the suitable format for end deployment is very technology specific i.e. it is different depending on programming languages
 * Programming Languages can be categorized into 3 formats
@@ -194,37 +207,36 @@ steps:
 
      ![Alt text](shots/20.PNG)
 
-## Building and Packaging Code
-
 ### Dependecny Management
 
-* To develop any application , there will be lots of dependencies on other libraries/sdks(Software developmet kit)
-* Before building/packaging we need to download these dependencies
-    * nodejs - npm
-    * python - pip
-    * .net - nuget
-    * java - mvn
+* To develop any application , there will be lots of dependencies on other libraries / sdks(Software developmet kit)
+* Before building / packaging we need to download these dependencies
+    * nodejs -> npm
+    * python -> pip
+    * .net -> nuget
+    * java -> mvn
 
 ### Test Executions
 
-    * We would be running
-        * unit tests (test code by writing code) => developers
-        * integration tests
-            * unit test
-            * ui test
-            * api test
-        * Functional tests
-            * ui tests (simulate user) => selenium, cypress, qtp…
-            * api tests (postman, rest assured)
-        * Performance tests:
-            * load testing harness (jmeter, load runner)
+* We would be running
+    * unit tests (test code by writing code) => developers
+    * integration tests
+        * unit test
+        * ui test
+        * api test
+    * Functional tests
+        * ui tests (simulate user) => selenium, cypress, qtp…
+        * api tests (postman, rest assured)
+    * Performance tests:
+        * load testing harness (jmeter, load runner)
 
 * What we should know for ci/cd...?
-        * command to invoke tests
-        * where will be test results
-        * converting test results to some common formats (junit xml)
 
-### Building and Packaging Java based applications
+    * command to invoke tests
+    * where will be test results
+    * converting test results to some common formats (junit xml)
+
+#### Building and Packaging - Java based application
 
 * To build Java Based applications, we have many tools
     * ANT
@@ -233,7 +245,7 @@ steps:
 * In this case we will be using a maven based java application
     * JDK = 17
     * MVN 3 +
-    * Project: [ Refer Here : 'https://github.com/spring-projects/spring-petclinic' ]
+    * Project: [Refer Here : https://github.com/spring-projects/spring-petclinic]
 * Manual steps : 
 ```
 sudo apt update
@@ -246,16 +258,16 @@ mvn package                     # Builds code, Creates package, Runs unit tests
 ![Alt text](shots/21.PNG)
 ![Alt text](shots/22.PNG)
 
-### Building and Packaging dotnet based applications
+#### Building and Packaging - dotnet based application
 
 * .net framework versions:
     * .net 2,3,4 (Windows)
     * .net 5 +
         * .net core
         * aspnet core
-* Build the nopcommerce [ Refer Here : 'https://github.com/nopSolutions/nopCommerce' ]
+* Build the nopcommerce [Refer Here : https://github.com/nopSolutions/nopCommerce]
 * Softwares:
-    * .net core 7 [ Refer Here : 'https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-2204' ]
+    * .net core 7 [Refer Here : https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-2204]
 ```
 sudo apt-get update && \
   sudo apt-get install -y dotnet-sdk-7.0
@@ -273,7 +285,7 @@ dotnet build src/NopCommerce.sln
 ```
 ![Alt text](shots/25.PNG)
 
-## Azure DevOps
+# Azure DevOps
 
 * Azure DevOps offers services to manage whole project
     * Project Management
@@ -293,15 +305,15 @@ dotnet build src/NopCommerce.sln
             * Release Pipelines
         * Artifacts
 * Azure DevOps can be used by two ways
-    * Self-Hosted [ Refer Here : 'https://learn.microsoft.com/en-us/azure/devops/server/download/azuredevopsserver?view=azure-devops' ]
-    * Cloud Hosted: [ Refer Here : 'https://azure.microsoft.com/en-in/products/devops' ]
+    * Self-Hosted [Refer Here : https://learn.microsoft.com/en-us/azure/devops/server/download/azuredevopsserver?view=azure-devops]
+    * Cloud Hosted: [Refer Here : https://azure.microsoft.com/en-in/products/devops]
 * Azure DevOps Services: Cloud Hosted Version of Azure DevOps
-    * Pricing: [ Refer Here : 'https://azure.microsoft.com/en-in/pricing/details/devops/azure-devops-services/' ]
-* Create a free azure devops account [ Refer Here : 'https://azure.microsoft.com/en-in/products/devops' ]
+    * Pricing: [Refer Here : https://azure.microsoft.com/en-in/pricing/details/devops/azure-devops-services/]
+* Create a free azure devops account [Refer Here : https://azure.microsoft.com/en-in/products/devops]
 
 
 
-### Importing an Existing git repo into Azure DevOps
+## Importing an Existing git repo into Azure DevOps
 
 * Import Repository from github into your account
 
@@ -319,9 +331,9 @@ dotnet build src/NopCommerce.sln
 
 
 
-* By default Parallelism request is disabled we need to enable this by sending request to microsoft on this location [ Refer Here : 'https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR63mUWPlq7NEsFZhkyH8jChUMlM3QzdDMFZOMkVBWU5BWFM3SDI2QlRBSC4u' ]
+* By default Parallelism request is disabled we need to enable this by sending request to microsoft on this location [Refer Here : https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR63mUWPlq7NEsFZhkyH8jChUMlM3QzdDMFZOMkVBWU5BWFM3SDI2QlRBSC4u]
 
-### YAML
+## YAML
 
 * YAML is a data represntation language with name-value pair collection
 * It represents name-value pair as '<name>: <value>'
@@ -455,16 +467,16 @@ FD:
     Amount: 10000000000
     IntrestRate: 9.75
 ```
-### Azure DevOps Pipeline
+## Azure DevOps Pipeline
 
 * Azure DevOps Pipelines are expressed in yaml formats in git repositories generally with name 'azure-pipelines.yaml'
 
 
 
 
-* YAML Schema for azure devops pipelines [ Refer here : 'https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines']
+* YAML Schema for azure devops pipelines [Refer here : https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines]
 
-* Key Concepts of Azure DevOps [ Refer here : 'https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops']
+* Key Concepts of Azure DevOps [Refer here : https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops]
 
 ![Alt text](shots/26.PNG)
 
