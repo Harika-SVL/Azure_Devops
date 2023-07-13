@@ -585,7 +585,7 @@ sudo apt install openjdk-17-jdk maven -y
 
 
 
-* Now configure account and permissions 
+* Now configure account and permissions :
     [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/windows-agent?view=azure-devops#permissions]
 * Configure the agent according to the steps on documentation
 
@@ -608,3 +608,181 @@ steps:
   - bash: printenv
 ```
 * Run the pipeline
+
+
+
+### Building Java Project in Azure DevOps using Self Hosted Agent
+
+* Azure Pipeline yaml schema :
+    [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines]
+* Task in Azure DevOps Pipelines: Tasks internally get converted into low-level OS commands/API calls.
+* Azure DevOps has lot of predefined tasks :
+    [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/?view=azure-pipelines]
+* We can also get additional tasks from Market :
+    [Refer Here : https://marketplace.visualstudio.com/azuredevops]
+* Let's acheive building the code without using any task
+* Manual command is `mvn package`
+* The pipeline is
+```
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: Default
+steps:
+  - bash: mvn package
+```
+* Push the changes and build should start (trigger)
+
+
+
+* Lets try using tasks for maven
+   [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/maven-v4?view=azure-pipelines]
+```
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: Default
+steps:
+  - task: Maven@3
+    inputs:
+      mavenPOMFile: 'pom.xml'
+      goals: 'package'
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      testRunTitle: 'unittests'
+```
+* Now push the changes and wait for pipeline to get executed
+
+### Build pipeline for Dotnet project
+
+* Manual steps:
+    * Install .net 7
+    * clone nop commerce and checkout to master branch
+    * commands
+        `yaml`
+        `git checkout master`
+        `dotnet restore src/NopCommerce.sln`
+        `dotnet build src/NopCommerce.sln`
+* Find tasks to perform restore and build and fill with the values required to build this project google `azure devops task list`
+* The pipeline will be approximately equavalent to
+```
+---
+
+trigger:
+  - master
+
+pool:
+  name: Default
+
+steps:
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: restore
+      projects: src/NopCommerce.sln
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: build
+      projects: src/NopCommerce.sln
+```
+### Using Microsoft Hosted Agent
+
+* [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#software] for the list of microsoft hosted agents
+* Setting up Microsoft hosted agents (Watch the classroom video)
+* Create a pipeline for game-of-life which uses jdk-8
+```
+---
+trigger:
+  - master
+
+jobs:
+  - job: buildjob
+    displayName: Build and Package Game of life
+    pool: 
+      vmImage: ubuntu-22.04
+    steps:
+      - task: Maven@3
+        inputs:
+          mavenPOMFile: 'pom.xml'
+          goals: 'package'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+```
+
+
+
+
+
+* Azure DevOps Pipleine Variables :
+    [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch]
+* Azure DevOps has predefined varibales :
+    [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#agent-variables-devops-services]
+* Used Copyfiles task
+```
+---
+trigger:
+  - master
+
+jobs:
+  - job: buildjob
+    displayName: Build and Package Game of life
+    pool: 
+      vmImage: ubuntu-22.04
+    steps:
+      - task: Maven@3
+        inputs:
+          mavenPOMFile: 'pom.xml'
+          goals: 'package'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+      - task: CopyFiles@2
+        inputs:
+          Contents: "**/target/gameoflife.war"
+          TargetFolder: $(Build.ArtifactStagingDirectory)
+```
+* Let's use Published build artifacts to acheive the same result 
+  [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/publish-build-artifacts-v1?view=azure-pipelines]
+```
+---
+trigger:
+  - master
+
+jobs:
+  - job: buildjob
+    displayName: Build and Package Game of life
+    pool: 
+      vmImage: ubuntu-22.04
+    steps:
+      - task: Maven@3
+        inputs:
+          mavenPOMFile: 'pom.xml'
+          goals: 'package'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+      - task: CopyFiles@2
+        inputs:
+          Contents: "**/target/gameoflife.war"
+          TargetFolder: $(Build.ArtifactStagingDirectory)
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathToPublish: $(Build.ArtifactStagingDirectory)
+          artifactName: GameOfLifeArtifacts
+```
+
