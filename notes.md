@@ -556,7 +556,7 @@ steps:
 ```
 ## Agents in Azure DevOps Pipeline
 
-* Azure DevOps Pipelines have two types of Agents
+* Azure DevOps pipelines have two types of Agents :
   * Microsoft hosted Agents
     [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml] for docs
     * Size is always fixed `Standard_D2S` i.e. `2 vcpu's 8 GB RAM`
