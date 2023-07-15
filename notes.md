@@ -584,6 +584,14 @@ sudo apt update
 sudo apt install openjdk-17-jdk -y
 sudo apt install maven -y
 ```
+![Alt text](shots/39.PNG)`
+![Alt text](shots/38.PNG)
+ 
+ * Now clone the Spring-pet clinic file to the local repo 'c:/temp/'
+ and change the directory to the file cloned
+
+ ![Alt text](shots/40.PNG)
+ 
 * Now navigate to project settings and agent pools
 
 
