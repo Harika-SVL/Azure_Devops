@@ -576,7 +576,8 @@ steps:
 * Install jdk-17 and maven
 ```
 sudo apt update 
-sudo apt install openjdk-17-jdk maven -y
+sudo apt install openjdk-17-jdk -y
+sudo apt install maven -y
 ```
 * Now navigate to project settings and agent pools
 
@@ -620,7 +621,7 @@ steps:
     [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/?view=azure-pipelines]
 * We can also get additional tasks from Market :
     [Refer Here : https://marketplace.visualstudio.com/azuredevops]
-* Let's acheive building the code without using any task
+* Let's achieve building the code without using any task
 * Manual command is `mvn package`
 * The pipeline is
 ```
@@ -641,7 +642,7 @@ steps:
 
 
 
-* Lets try using tasks for maven
+* Let's try using tasks for maven
    [Refer Here : https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/maven-v4?view=azure-pipelines]
 ```
 # Starter pipeline
