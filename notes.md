@@ -501,6 +501,11 @@ FD:
 ** Steps : can be done sequentially **
 
 * When pipeline is executed, it is executed with a code from Version Control which is already cloned and in the specified branch 
+* Pipeline is implemented using :
+  * pipeline:stages
+  * pipeline:extends (reusability)
+  * pipeline:jobs
+  * pipeline:steps
 * Let's write a pipeline from the YAML schema 
 [Refer here : https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines]
 ```
