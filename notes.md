@@ -1,4 +1,4 @@
-### Big Bang integration Senerio
+ ### Big Bang integration Senerio
 * Consider a case where you are working for vintage systems where we are developing ecommerce application in Waterfall model
 
 ![Alt text](shots/1.PNG)
